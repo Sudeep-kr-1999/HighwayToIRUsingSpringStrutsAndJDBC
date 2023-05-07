@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- Bean of GetAllUserDaoImpl required in ManagerImpl -->
+	<bean id="getAllUserDaoImpl"
+		class="com.spring.DaoImpl.GetAllUserDaoImpl">
+	</bean>
+
+
+	<!-- Bean of RegisterUserDaoImpl required in ManagerImpl -->
+	<bean id="registerUserDaoImpl"
+		class="com.spring.DaoImpl.RegisterUserDaoImpl"></bean>
+
+
+	<!-- Bean of ManagerImpl required in GetRegisteredUserAction and RegisterNewUserAction -->
+	<bean id="managerImpl" class="com.spring.managerImpl.ManagerImpl">
+		<property name="getAllUserDaoImpl" ref="getAllUserDaoImpl" />
+		<property name="registerUserDaoImpl"
+			ref="registerUserDaoImpl" />
+	</bean>
+</beans> 
